@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     
@@ -71,16 +71,20 @@
     </style>
        <div class="wrapper">
        <div class="form">
-    <form method="POST">
+        {% block content %}
+        <h1>Enter Phone number</h1>
+        <form method="post">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button type="submit">LogIn</button>
+        </form>
+      {% endblock %}
 
-        {%csrf_token%}                  
-        <h1>Student Registration Form </h1>
-        {{form.as_p}}
-        <button>Submit</button>
-    </form>
-    </div>
     </div>
     <div class="div"></div>
     <div id="div"></div>
 </body>
-</html> -->
+</html> 
+
+
+

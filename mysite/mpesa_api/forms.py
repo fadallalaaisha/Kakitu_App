@@ -1,9 +1,10 @@
-# from django import forms
-# # from django.db.models.base import Model
-# #handles data
-# from .models import MpesaPayment
+from django import forms
+from .models import MpesaPayment
 
-# class CutomerForm(forms.ModelForm):
-#     class Meta:
-#         model=MpesaPayment
-#         fields="__all__"
+
+class CutomerForm(forms.ModelForm):
+    phone = forms.CharField(max_length=20, required=True, help_text='Phone number')
+
+    class Meta:
+        model=MpesaPayment
+        fields="__all__"
