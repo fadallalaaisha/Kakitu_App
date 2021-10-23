@@ -1,7 +1,8 @@
+from django.forms import forms
 from django.http import HttpResponse
 from django.shortcuts import render,redirect
 from .forms import CutomerForm
-# from .models import MpesaPayment
+from .models import MpesaPayment
 from django.contrib.auth.decorators import login_required
 
 import requests
@@ -10,6 +11,9 @@ import json
 from . mpesa_credentials import MpesaAccessToken, LipanaMpesaPpassword
 
 
+def index(request):
+    return render(request, 'index.html')
+    
 def getAccessToken(request):
     
     consumer_key = 'cHnkwYIgBbrxlgBoneczmIJFXVm0oHky'
@@ -40,18 +44,21 @@ def lipa_na_mpesa_online(request):
         "TransactionDesc": "Testing stk push"
     }
     response = requests.post(api_url, json=request, headers=headers)
-    return HttpResponse('success')
+    return HttpResponse(request, 'customer.html', {"form":forms})
 
-@login_required
+
+# @login_required
 def register_Customer(request):
-# def verify_code(request):
     if request.method == 'POST':
         form=CutomerForm(request.POST)
         if form.is_valid():
-            form.save()
+            # form.save()
             return redirect(register_Customer)
+            # print(form.errors)
         else:
-            return redirect('reigister_Customer')    
+            return redirect('index')    
     else:
         form=CutomerForm
-    return render(request, 'customer.html', {"form":form})
+        return HttpResponse(request,'customer.html')
+
+
