@@ -46,7 +46,6 @@ def lipa_na_mpesa_online(request):
     response = requests.post(api_url, json=request, headers=headers)
     return HttpResponse(request, 'customer.html', {"form":forms})
 
-
 # @login_required
 def register_Customer(request):
     if request.method == 'POST':
@@ -60,5 +59,3 @@ def register_Customer(request):
     else:
         form=CutomerForm
         return HttpResponse(request,'customer.html')
-
-

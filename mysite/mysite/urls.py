@@ -21,4 +21,3 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     url('', include('mpesa_api.urls')),
 ]
-
