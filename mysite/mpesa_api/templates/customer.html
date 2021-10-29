@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="main.css">
-    <title>StudentForm</title>
+    <title>Form</title>
 </head>
 <body>
     <style>
@@ -73,9 +73,9 @@
        <div class="form">
         {% block content %}
         <h1>Enter Phone number</h1>
-        <form method="post">
+        <form action="/online/lipa" method="post">
           {% csrf_token %}
-          {{ form.as_p }}
+          {{ form}}
           <button type="submit">LogIn</button>
         </form>
       {% endblock %}
