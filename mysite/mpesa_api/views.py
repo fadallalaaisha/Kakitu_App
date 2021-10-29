@@ -46,7 +46,7 @@ def lipa_na_mpesa_online(request):
         "PartyB": LipanaMpesaPpassword.Business_short_code,
         "PhoneNumber": int(phone),  
         "CallBackURL": "https://aisha.com",
-        "AccountReference": "Aisha",
+        "AccountReference": "Kakitu",
         "TransactionDesc": "Testing"
     }
     logger.info('Phone number:' + phone)
